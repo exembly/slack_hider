@@ -1,4 +1,3 @@
-# Authors: Zachary Parish, Aaron Lam, Omid Novtash
 # This module provides classes to handle interaction with the drives
 # It is assumed that this program is running on Linux, and that debugfs is installed.
 # This code has been tested on Arch Linux, but should run on other distros

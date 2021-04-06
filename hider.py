@@ -1,4 +1,3 @@
-# Authors: Zachary Parish, Aaron Lam, Omid Novtash
 # This is the main driver function of the program and handles parsing commandline arguments and setting up the
 #  objects used to perform the hiding
 import argparse
@@ -10,7 +9,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--target', '-t', type=str, help='The path to the mount point of the target drive'
                                                                 ' providing the slack space')
-    parser.add_argument('--check', '-k', type=bool, help='If this flag is set, calculate the space on the target but '
+    parser.add_argument('--check', '-k', action='store_true', help='If this flag is set, calculate the space on the target but '
                                                          'do not hide or extract files')
     parser.add_argument('--input', '-i', type=str, help='The path to a file to hide in slack space OR'
                                                                ' the path to a directory containing multiple files')
@@ -18,9 +17,9 @@ if __name__ == '__main__':
     parser.add_argument('--output', '-o', type=str, help='The path to a directory to place the file or files '
                                                                 'extracted from slack space')
 
-    parser.add_argument('--purge', type=bool, help='Delete all data in slack space on the target device including the'
+    parser.add_argument('--purge', action='store_true', help='Delete all data in slack space on the target device including the'
                                                    ' slack table.')
-    parser.add_argument('--verbose', '-v', type=bool, help='Show verbose output', default=False)
+    parser.add_argument('--verbose', '-v', action='store_true', help='Show verbose output', default=False)
     args = parser.parse_args()
 
     # Check that a target drive was provided
